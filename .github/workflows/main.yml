@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
           cd ./api-testing/
-          npm --prefix ./api-testing/package.json install
+          npm install
           npm run test
           continue-on-error: true
 
