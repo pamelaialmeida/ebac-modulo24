@@ -30,10 +30,10 @@ jobs:
           sleep 10
 
       - name: Instalando dependências para testes
-        shell: bash
         run: |
           cd ./api-testing/
           npm install --legacy-peer-deps
+          npm install node@19.2
     
       - name: Rodando testes
         uses: stefanoeb/jest-action@1.0.3
