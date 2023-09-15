@@ -33,15 +33,10 @@ jobs:
         shell: bash
         run: |
           cd ./api-testing/
-          npm install
-
-      - name: Rodando testes
-        shell: bash
-        run: |
-          cd ./api-testing/
+          npm --prefix ./api-testing/package.json install
           npm run test
           continue-on-error: true
-          
+
       - name: Publicando o relatorio
         uses: peaceiris/actions-gh-pages@v3
         with:
