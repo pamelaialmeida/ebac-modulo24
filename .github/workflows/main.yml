@@ -17,7 +17,7 @@ jobs:
       - name: Setup de ambiente Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 19.2
 
       - name: Instalando dependencias
         run: npm install --legacy-peer-deps
@@ -43,4 +43,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./api-testing
+          publish_dir: ./api-testing/index.html
