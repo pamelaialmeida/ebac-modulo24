@@ -9,6 +9,7 @@ let getAccessToken = (user, password) => {
                 })
                 .set('Accept', 'application/json')
                 .then( response => {
+                    console.log(JSON.stringify(response))
                     return response.body.accessToken
                 })
 
