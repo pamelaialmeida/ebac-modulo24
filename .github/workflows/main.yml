@@ -34,7 +34,11 @@ jobs:
         run: |
           cd ./api-testing/
           npm install
-          sleep 10
+
+      - name: Rodando testes
+        shell: bash
+        run: |
+          cd ./api-testing/
           npm run test
           continue-on-error: true
           
