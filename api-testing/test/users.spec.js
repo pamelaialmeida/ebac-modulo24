@@ -16,10 +16,11 @@ describe('Testes do endpoint Users', () => {
 
     beforeAll( async () => {
         token = await getAccessToken('admin', 'admin');
+        console.log(token)
     });
        
     it('(Users GET) Deve listar todos os usuários cadastrados', async () => {
-        
+        console.log(token)
         await request(API_URL)
                 .get('/users')
                 .set('Accept', 'application/json')
