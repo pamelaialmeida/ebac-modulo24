@@ -30,6 +30,7 @@ jobs:
           sleep 10
 
       - name: Instalando dependências para testes
+        shell: bash
         run: |
           cd ./api-testing/
           npm install
