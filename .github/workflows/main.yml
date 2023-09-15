@@ -35,7 +35,7 @@ jobs:
           npm install
     
       - name: Rodando testes
-        uses: stefanoeb/jest-action@1.0.3
+        run: npm run test
         continue-on-error: true
 
       - name: Publicando o relatorio
