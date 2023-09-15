@@ -1,0 +1,45 @@
+name: EBAC Modulo 24 CI
+
+on:  
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout do repositorio
+        uses: actions/checkout@v3
+
+        
+      - name: Setup de ambiente Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalando dependencias
+        run: npm install --legacy-peer-deps
+
+      - name: Start de aplicacao
+        run: |
+          npm run prisma:generate
+          npm run docker:db
+          npm run start
+
+      - name: Instalando dependências para testes
+        shell: bash
+        run: |
+          cd .\api-testing\
+          npm install --legacy-peer-deps
+    
+      - name: Rodando testes
+        uses: stefanoeb/jest-action@1.0.3
+        continue-on-error: true
+
+      - name: Publicando o relatorio
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./api-testing
