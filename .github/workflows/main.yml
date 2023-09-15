@@ -32,7 +32,7 @@ jobs:
       - name: Instalando dependências para testes
         shell: bash
         run: |
-          cd ".\api-testing\"
+          cd ./api-testing/
           npm install --legacy-peer-deps
     
       - name: Rodando testes
