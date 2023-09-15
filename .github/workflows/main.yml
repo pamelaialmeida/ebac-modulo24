@@ -26,7 +26,8 @@ jobs:
         run: |
           npm run prisma:generate
           npm run docker:db -d
-          npm run start
+          npm run start &
+          sleep 10
 
       - name: Instalando dependências para testes
         shell: bash
