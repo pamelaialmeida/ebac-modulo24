@@ -29,16 +29,14 @@ jobs:
           npm run start &
           sleep 10
 
-      - name: Instalando dependências para testes
+      - name: Instalando dependências e rodando testes
         shell: bash
         run: |
           cd ./api-testing/
-          npm install
-    
-      - name: Rodando testes
-        run: npm run test
-        continue-on-error: true
-
+          npm install --legacy-peer-deps
+          npm run test
+          continue-on-error: true
+          
       - name: Publicando o relatorio
         uses: peaceiris/actions-gh-pages@v3
         with:
