@@ -25,6 +25,7 @@ describe('Testes do endpoint Users', () => {
                 .set('Accept', 'application/json')
                 .set('Authorization', `Bearer ${token}`)
             .then( response => {
+                console.log(JSON.stringify(response))
                 expect(response.statusCode).toEqual(200)
                 expect(response.body).toBeInstanceOf(Array)
             })
