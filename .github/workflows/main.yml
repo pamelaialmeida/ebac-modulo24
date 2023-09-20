@@ -32,7 +32,7 @@ jobs:
       - name: Instalando dependências e rodando testes
         run: |
           cd ./api-testing/
-          npm install
+          npm install -f
           npm run test
           continue-on-error: true
 
